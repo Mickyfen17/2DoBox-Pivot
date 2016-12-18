@@ -17,18 +17,15 @@ function grabValues() {
 
 var uniqueID;
 
-$( ".save" ).on("click",function(e) {
-  uniqueID = e.timeStamp;
+$( ".save" ).on("click",function() {
+  uniqueID = Date.now();
   grabValues();
 });
 
 function stringObj(ideaObj) {
   var stringObj = JSON.stringify(ideaObj);
   localStorage.setItem(uniqueID, stringObj);
-  // idNum ++;
 }
-// var idNum = 1;
-
 
 function retrieveIdeas() {
   for(var key in localStorage) {
