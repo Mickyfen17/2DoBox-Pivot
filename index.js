@@ -53,9 +53,9 @@ function retrieveIdeas() {
 function displayIdea(newIdeaContent) {
   $(".entries").prepend(`
     <article id="${newIdeaContent.id}" class="idea-card">
-    <h5>${newIdeaContent.title}</h5>
+    <h5 contenteditable>${newIdeaContent.title}</h5>
     <img class="delete" src="images/delete.svg">
-    <p>${newIdeaContent.body}</p>
+    <p contenteditable>${newIdeaContent.body}</p>
     <h6>${newIdeaContent.quality}</h6>
     </article>`
   );
