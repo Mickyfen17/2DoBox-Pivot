@@ -10,12 +10,13 @@ $(".save").on("click", function() {
 });
 
 $(".entries").on("click", ".delete", function() {
-  console.log(this);
+  var id = $(this).parent().attr("id");
+  localStorage.removeItem(id);
   $(this).parent().remove();
 });
 
 function NewIdea(title, body) {
-  // this.id = id;
+  this.id = uniqueID;
   this.title = title;
   this.body = body;
   this.quality = "swill";
@@ -46,7 +47,7 @@ function retrieveIdeas() {
 
 function displayIdea(newIdeaContent) {
   $(".entries").prepend(`
-    <article class="idea-card">
+    <article id="${newIdeaContent.id}" class="idea-card">
     <h5>${newIdeaContent.title}</h5>
     <img class="delete" src="images/delete.svg">
     <p>${newIdeaContent.body}</p>
