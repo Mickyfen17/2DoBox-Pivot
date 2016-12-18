@@ -43,6 +43,7 @@ function displayIdea(newIdeaContent) {
   $(".entries").prepend(`
     <article class="idea-card">
     <h5>${newIdeaContent.title}</h5>
+    <span><img class="delete" src="images/delete.svg"></span>
     <p>${newIdeaContent.body}</p>
     <h6>${newIdeaContent.quality}</h6>
     </article>`
