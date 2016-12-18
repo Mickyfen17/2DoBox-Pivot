@@ -1,3 +1,13 @@
+var uniqueID;
+
+window.onload = function() {
+  retrieveIdeas();
+};
+
+$(".save").on("click", function() {
+  uniqueID = Date.now();
+  grabValues();
+});
 
 function NewIdea(title, body) {
   // this.id = id;
@@ -9,18 +19,10 @@ function NewIdea(title, body) {
 function grabValues() {
   var title = $( ".title" ).val();
   var idea = $( ".idea" ).val();
-  console.log(title + " " + idea);
   var newIdea = new NewIdea(title, idea);
   // console.log(newIdea);
   stringObj(newIdea);
 }
-
-var uniqueID;
-
-$( ".save" ).on("click",function() {
-  uniqueID = Date.now();
-  grabValues();
-});
 
 function stringObj(ideaObj) {
   var stringObj = JSON.stringify(ideaObj);
@@ -45,8 +47,4 @@ function displayIdea(newIdeaContent) {
     <h6>${newIdeaContent.quality}</h6>
     </article>`
   );
-}
-
-window.onload = function() {
-  retrieveIdeas();
 }
