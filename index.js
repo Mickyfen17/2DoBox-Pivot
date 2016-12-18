@@ -9,6 +9,11 @@ $(".save").on("click", function() {
   grabValues();
 });
 
+$(".entries").on("click", ".delete", function() {
+  console.log(this);
+  $(this).parent().remove();
+});
+
 function NewIdea(title, body) {
   // this.id = id;
   this.title = title;
@@ -43,7 +48,7 @@ function displayIdea(newIdeaContent) {
   $(".entries").prepend(`
     <article class="idea-card">
     <h5>${newIdeaContent.title}</h5>
-    <span><img class="delete" src="images/delete.svg"></span>
+    <img class="delete" src="images/delete.svg">
     <p>${newIdeaContent.body}</p>
     <h6>${newIdeaContent.quality}</h6>
     </article>`
