@@ -1,7 +1,7 @@
 body {
   text-align: center;
   font-family: 'Open Sans', sans-serif;
-  
+
   }
 
   .box {
@@ -36,4 +36,17 @@ body {
 .search-input {
   width: 90%;
   margin: auto;
+}
+
+.idea-card {
+  position: relative;
+  width: 50%;
+  margin: 0 auto;
+}
+.delete {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 20px;
+  height: 20px;
 }
