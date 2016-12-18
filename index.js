@@ -15,14 +15,24 @@ function grabValues() {
   stringObj(newIdea);
 }
 
+var uniqueID;
 
-$( ".save" ).on("click",function() {
+$( ".save" ).on("click",function(e) {
+  uniqueID = e.timeStamp;
   grabValues();
 });
 
 function stringObj(ideaObj) {
   var stringObj = JSON.stringify(ideaObj);
-  localStorage.setItem(idNum, stringObj);
-  idNum ++;
+  localStorage.setItem(uniqueID, stringObj);
+  // idNum ++;
 }
-var idNum = 1;
+// var idNum = 1;
+
+
+function retrieveIdeas() {
+  for(var key in localStorage) {
+    var parsed = JSON.parse(localStorage[key]);
+    console.log(parsed);
+  }
+}
