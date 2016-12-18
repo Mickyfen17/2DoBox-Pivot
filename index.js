@@ -7,8 +7,13 @@ window.onload = function() {
 $(".save").on("click", function() {
   uniqueID = Date.now();
   grabValues();
+  clearInputs();
 });
 
+function clearInputs () {
+  $(".title").val("");
+  $(".idea").val("");
+}
 $(".entries").on("click", ".delete", function() {
   var id = $(this).parent().attr("id");
   localStorage.removeItem(id);
