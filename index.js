@@ -16,6 +16,38 @@ $(".entries").on("click", ".delete", function() {
   $(this).parent().remove();
 });
 
+function upVote(ideaCard) {
+  // var currentQuality = ideaCard.text();
+  if (ideaCard.text() === "swill") {
+    ideaCard.text("plausible");
+  }else if (ideaCard.text() === "plausible") {
+    ideaCard.text("genius");
+  }
+}
+
+function downVote(ideaCard) {
+  // var currentQuality = ideaCard.text();
+  if (ideaCard.text() === "genius") {
+    ideaCard.text("plausible");
+  }else if (ideaCard.text() === "plausible") {
+    ideaCard.text("swill");
+  }
+}
+
+
+
+$(".entries").on("click", ".upvote", function () {
+  var thisQuality = $(this).siblings(".quality");
+  upVote(thisQuality);
+  console.log("upvote");
+});
+
+$(".entries").on("click", ".downvote", function () {
+  var thisQuality = $(this).siblings(".quality");
+  downVote(thisQuality);
+  console.log("downvote");
+});
+
 $(".entries").on("blur", "h5", function() {
   var id = $(this).parent().attr("id");
   var updatedTitle = $(this).text();
@@ -84,7 +116,9 @@ function displayIdea(newIdeaContent) {
     <h5 class="edit" contenteditable>${newIdeaContent.title}</h5>
     <img class="delete" src="images/delete.svg">
     <p class="edit" contenteditable>${newIdeaContent.body}</p>
-    <h6>${newIdeaContent.quality}</h6>
+    <img class="upvote" src="images/upvote.svg">
+    <img class="downvote" src="images/downvote.svg">
+    <h6>quality:<h5 class="quality">${newIdeaContent.quality}</h5></h6>
     </article>`
   );
 }
