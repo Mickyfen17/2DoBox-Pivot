@@ -16,37 +16,36 @@ $(".entries").on("click", ".delete", function() {
   $(this).parent().remove();
 });
 
-function upVote(ideaCard) {
-  // var currentQuality = ideaCard.text();
-  if (ideaCard.text() === "swill") {
-    ideaCard.text("plausible");
-  }else if (ideaCard.text() === "plausible") {
-    ideaCard.text("genius");
-  }
-}
-
-function downVote(ideaCard) {
-  // var currentQuality = ideaCard.text();
-  if (ideaCard.text() === "genius") {
-    ideaCard.text("plausible");
-  }else if (ideaCard.text() === "plausible") {
-    ideaCard.text("swill");
-  }
-}
-
-
-
 $(".entries").on("click", ".upvote", function () {
   var thisQuality = $(this).siblings(".quality");
   upVote(thisQuality);
-  console.log("upvote");
+  updateStoredQuality(this, thisQuality);
 });
-
 $(".entries").on("click", ".downvote", function () {
   var thisQuality = $(this).siblings(".quality");
   downVote(thisQuality);
-  console.log("downvote");
+  updateStoredQuality(this, thisQuality);
 });
+function updateStoredQuality(ideaCard, newQuality) {
+  var id = $(ideaCard).parent().attr("id");
+  var itemsToEdit = JSON.parse(localStorage.getItem(id));
+  itemsToEdit.quality = newQuality.text();
+  localStorage.setItem(id, JSON.stringify(itemsToEdit));
+}
+function upVote(currentQuality) {
+  if (currentQuality.text() === "swill") {
+    currentQuality.text("plausible");
+  }else if (currentQuality.text() === "plausible") {
+    currentQuality.text("genius");
+  }
+}
+function downVote(currentQuality) {
+  if (currentQuality.text() === "genius") {
+    currentQuality.text("plausible");
+  }else if (currentQuality.text() === "plausible") {
+    currentQuality.text("swill");
+  }
+}
 
 $(".entries").on("blur", "h5", function() {
   var id = $(this).parent().attr("id");
