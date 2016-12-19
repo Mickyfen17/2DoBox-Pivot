@@ -16,6 +16,14 @@ $(".entries").on("click", ".delete", function() {
   $(this).parent().remove();
 });
 
+$(".entries").on("click", ".upvote", function () {
+  console.log("upvote");
+});
+
+$(".entries").on("click", ".downvote", function () {
+  console.log("downvote");
+});
+
 $(".entries").on("blur", "h5", function() {
   var id = $(this).parent().attr("id");
   var updatedTitle = $(this).text();
