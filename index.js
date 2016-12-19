@@ -55,17 +55,17 @@ function updateStoredQuality(ideaCard, newQuality) {
 $(".entries").on("blur", "h5", function() {
   var id = $(this).parent().attr("id");
   var updatedTitle = $(this).text();
-  var updatedIdea = $(this).siblings("p").text();
-  var newIdea = new NewIdea(id, updatedTitle, updatedIdea);
-  stringObj(id, newIdea);
+  var itemsToEdit = JSON.parse(localStorage.getItem(id));
+  itemsToEdit.title = updatedTitle;
+  localStorage.setItem(id, JSON.stringify(itemsToEdit));
 });
 //event listener to edit body and update body value in local storage
 $(".entries").on("blur", "p", function() {
   var id = $(this).parent().attr("id");
   var updatedIdea = $(this).text();
-  var updatedTitle = $(this).siblings("h5").text();
-  var newIdea = new NewIdea(id, updatedTitle, updatedIdea);
-  stringObj(id, newIdea);
+  var itemsToEdit = JSON.parse(localStorage.getItem(id));
+  itemsToEdit.body = updatedIdea;
+  localStorage.setItem(id, JSON.stringify(itemsToEdit));
 });
 
 // $(".entries").on("blur", ".edit", function() {
