@@ -128,3 +128,17 @@ function displayIdea(newIdeaContent) {
     </article>`
   );
 }
+
+
+$(".search-input").on("keyup", function() {
+  var ideas = $(".idea-card");
+  var searchText = $(this).val();
+  for(var i = 0; i < ideas.length; i++) {
+    var idea = ideas[i].innerText;
+    if(idea.indexOf(searchText) === -1) {
+      $(ideas[i]).hide();
+    } else {
+      $(ideas[i]).show();
+    }
+  }
+});
