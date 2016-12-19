@@ -52,7 +52,6 @@ $(".entries").on("blur", "h5", function() {
   var updatedTitle = $(this).text();
   var updatedIdea = $(this).siblings("p").text();
   var newIdea = new NewIdea(id, updatedTitle, updatedIdea);
-  // console.log(newIdea);
   stringObj(id, newIdea);
 });
 $(".entries").on("blur", "p", function() {
@@ -60,7 +59,6 @@ $(".entries").on("blur", "p", function() {
   var updatedIdea = $(this).text();
   var updatedTitle = $(this).siblings("h5").text();
   var newIdea = new NewIdea(id, updatedTitle, updatedIdea);
-  // console.log(newIdea);
   stringObj(id, newIdea);
 });
 
