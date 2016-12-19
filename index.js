@@ -16,17 +16,33 @@ $(".entries").on("click", ".delete", function() {
   $(this).parent().remove();
 });
 
-
-$(".entries").on("blur", ".edit", function() {
+$(".entries").on("blur", "h5", function() {
   var id = $(this).parent().attr("id");
-  var updatedTitle = $(this).closest("h5").text();
-  var updatedIdea = $(this).closest("p").text();
-  // console.log(updatedIdea + " " + updatedTitle);
+  var updatedTitle = $(this).text();
+  var updatedIdea = $(this).siblings("p").text();
   var newIdea = new NewIdea(id, updatedTitle, updatedIdea);
-  console.log(newIdea);
-  // console.log(id);
+  // console.log(newIdea);
   stringObj(id, newIdea);
 });
+$(".entries").on("blur", "p", function() {
+  var id = $(this).parent().attr("id");
+  var updatedIdea = $(this).text();
+  var updatedTitle = $(this).siblings("h5").text();
+  var newIdea = new NewIdea(id, updatedTitle, updatedIdea);
+  // console.log(newIdea);
+  stringObj(id, newIdea);
+});
+
+// $(".entries").on("blur", ".edit", function() {
+//   var id = $(this).parent().attr("id");
+//   var updatedTitle = $(this).closest("h5").text();
+//   var updatedIdea = $(this).closest("p").text();
+//   // console.log(updatedIdea + " " + updatedTitle);
+//   var newIdea = new NewIdea(id, updatedTitle, updatedIdea);
+//   console.log(newIdea);
+//   console.log(id);
+//   // stringObj(id, newIdea);
+// });
 
 function NewIdea(id, title, body) {
   this.id = id;
