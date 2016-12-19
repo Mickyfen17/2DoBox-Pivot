@@ -16,18 +16,36 @@ $(".entries").on("click", ".delete", function() {
   $(this).parent().remove();
 });
 
-// $(".entries").on("blur",".edit", function() {
-//   var updatedTitle = $("h5");
-//   var updatedIdea = $("p");
-//   console.log(updatedIdea + " " + updatedTitle);
-//   var newIdea = new NewIdea(updatedTitle, updatedIdea);
+$(".entries").on("blur", "h5", function() {
+  var id = $(this).parent().attr("id");
+  var updatedTitle = $(this).text();
+  var updatedIdea = $(this).siblings("p").text();
+  var newIdea = new NewIdea(id, updatedTitle, updatedIdea);
+  // console.log(newIdea);
+  stringObj(id, newIdea);
+});
+$(".entries").on("blur", "p", function() {
+  var id = $(this).parent().attr("id");
+  var updatedIdea = $(this).text();
+  var updatedTitle = $(this).siblings("h5").text();
+  var newIdea = new NewIdea(id, updatedTitle, updatedIdea);
+  // console.log(newIdea);
+  stringObj(id, newIdea);
+});
+
+// $(".entries").on("blur", ".edit", function() {
+//   var id = $(this).parent().attr("id");
+//   var updatedTitle = $(this).closest("h5").text();
+//   var updatedIdea = $(this).closest("p").text();
+//   // console.log(updatedIdea + " " + updatedTitle);
+//   var newIdea = new NewIdea(id, updatedTitle, updatedIdea);
 //   console.log(newIdea);
-//   stringObj(newIdea);
-//   console.log("hi");
+//   console.log(id);
+//   // stringObj(id, newIdea);
 // });
 
-function NewIdea(title, body) {
-  this.id = uniqueID;
+function NewIdea(id, title, body) {
+  this.id = id;
   this.title = title;
   this.body = body;
   this.quality = "swill";
@@ -39,15 +57,15 @@ function clearInputs () {
 }
 
 function grabValues() {
-  var title = $( ".title" ).val();
-  var idea = $( ".idea" ).val();
-  var newIdea = new NewIdea(title, idea);
-  stringObj(newIdea);
+  var title = $(".title").val();
+  var idea = $(".idea").val();
+  var newIdea = new NewIdea(uniqueID, title, idea);
+  stringObj(uniqueID, newIdea);
 }
 
-function stringObj(ideaObj) {
+function stringObj(id, ideaObj) {
   var stringObj = JSON.stringify(ideaObj);
-  localStorage.setItem(uniqueID, stringObj);
+  localStorage.setItem(id, stringObj);
   retrieveIdeas();
 }
 
