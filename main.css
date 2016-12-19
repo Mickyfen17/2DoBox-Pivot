@@ -13,10 +13,11 @@ body {
  h1 {
   margin: 15px 0 50px 0;
   text-align: center;
-  font-family: 'Roboto Slab';
+  font-family: 'Roboto Slab', sans-serif;;
   font-size: 2.8em;
-  font-weight: 800;
+  font-weight: 700;
 }
+
 .logo {
   color: #00A79D;
 }
@@ -24,6 +25,7 @@ body {
 span {
   color: #6D6E71;
 }
+
 article {
   border: 2px solid black;
   width: 80%;
