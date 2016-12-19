@@ -13,15 +13,29 @@ body {
  h1 {
   margin: 15px 0 50px 0;
   text-align: center;
+  font-family: 'Roboto Slab';
   font-size: 2.8em;
   font-weight: 800;
 }
+.logo {
+  color: #00A79D;
+}
 
+span {
+  color: #6D6E71;
+}
+article {
+  border: 2px solid black;
+  width: 80%;
+}
 .input {
   margin: 10px auto;
   padding: 3px 0px;
   width: 90%;
   font-size: .4em;
+}
+.save {
+  background-color: #00A79D;
 }
 
 .body {
