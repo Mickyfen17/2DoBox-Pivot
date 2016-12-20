@@ -39,6 +39,9 @@ article {
   font-size: .9em;
   border: 2px solid #D1D3D4;
 }
+.idea {
+  height: 80px;
+}
 .save {
   background-color: #00A79D;
   color: #FFFFFF;
@@ -136,4 +139,23 @@ h6 {
 }
 .downvote:hover {
   background-image: url(images/downvote-hover.svg);
+}
+
+@media screen and (min-width:600px) {
+  .input, .search-input {
+    width: 50%;
+    height: 20px;
+
+  }
+  .entries {
+    width: 50%;
+    margin: 0 auto;
+  }
+  .idea-card {
+    width: 98%
+  }
+}
+
+@media screen and (min-width:900px) {
+
 }
