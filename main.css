@@ -41,6 +41,7 @@ article {
 }
 .idea {
   height: 80px;
+  resize: none;
 }
 .save {
   background-color: #00A79D;
@@ -51,6 +52,10 @@ article {
 }
 .save:hover {
   background-color: #045E55;
+}
+
+.save:disabled {
+  background-color: #939598;
 }
 
 h5 {
@@ -144,8 +149,10 @@ h6 {
 @media screen and (min-width:600px) {
   .input, .search-input {
     width: 50%;
-    height: 20px;
+  }
 
+  textarea {
+    height: 20px;
   }
   .entries {
     width: 50%;
@@ -154,8 +161,4 @@ h6 {
   .idea-card {
     width: 98%
   }
-}
-
-@media screen and (min-width:900px) {
-
 }
