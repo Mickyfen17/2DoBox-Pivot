@@ -4,11 +4,23 @@ var uniqueID;
 window.onload = function() {
   retrieveIdeas();
 };
+
+$(".title, .idea").on("keyup", function() {
+  enableSaveBtn();
+});
+
+function enableSaveBtn() {
+  var title = $(".title").val();
+  var idea = $(".idea").val();
+  var saveBtn = $(".save");
+  title.length > 0 && idea.length > 0 ? saveBtn.attr('disabled', false) : saveBtn.attr('disabled', true)
+}
 //event listener for save button
 $(".save").on("click", function() {
   uniqueID = Date.now();
   grabValues();
   clearInputs();
+  enableSaveBtn();
 });
 //deletes the idea card from DOM and storage
 $(".entries").on("click", ".delete", function() {
