@@ -1,10 +1,9 @@
 body {
   text-align: center;
-  /*font-family: 'Open Sans', sans-serif;*/
+  margin: -14px 0 0 0;
+}
 
-  }
-
-  .box {
+.box {
   width: 100%;
   background-color: #E5F3F2;
 
@@ -38,6 +37,7 @@ article {
   width: 90%;
   height: 15px;
   font-size: .9em;
+  border: 2px solid #D1D3D4;
 }
 .save {
   background-color: #00A79D;
@@ -50,18 +50,13 @@ article {
   background-color: #045E55;
 }
 
-.body {
-  line-height: normal;
-  height: 100px;
-}
-
 h5 {
   color: #6D6E71;
   font-size: 1.4em;
   margin: 10px 0 0 0;
 }
 p {
-  margin: 10px 0 40px 0;
+  margin: 10px 0 45px 0;
   color: #939598;
   font-family: 'Open Sans', sans-serif;
   font-size: 0.9em;
@@ -71,14 +66,14 @@ h6 {
   width: 50%;
   position: absolute;
   left: 80px;
-  bottom: -25px;
+  bottom: -20px;
   font-size: 1em;
   color: #6D6E71;
 }
 .quality {
   position: absolute;
   left: 140px;
-  bottom: 12px;
+  bottom: 17px;
   font-size: 0.8em;
   font-family: 'Open Sans', sans-serif;
 }
@@ -90,7 +85,10 @@ h6 {
 .search-input {
   width: 89%;
   height: 15px;
-  margin-top: 15px;
+  margin: 15px 0;
+  font-size: 0.9em;
+  border: 2px solid #D1D3D4;
+  padding: 3px 0px;
 }
 
 .idea-card {
@@ -115,7 +113,7 @@ h6 {
 }
 .upvote {
   position: absolute;
-  bottom: 10px;
+  bottom: 15px;
   left: 7px;
   background-image: url(images/upvote.svg);
   width: 20px;
@@ -127,7 +125,7 @@ h6 {
 }
 .downvote {
   position: absolute;
-  bottom: 10px;
+  bottom: 15px;
   left: 35px;
   background-image: url(images/downvote.svg);
   width: 20px;
