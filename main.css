@@ -1,6 +1,6 @@
 body {
   text-align: center;
-  font-family: 'Open Sans', sans-serif;
+  /*font-family: 'Open Sans', sans-serif;*/
 
   }
 
@@ -36,17 +36,18 @@ article {
   margin: 10px auto;
   padding: 3px 0px;
   width: 90%;
-  font-size: .4em;
+  height: 15px;
+  font-size: .9em;
 }
 .save {
   background-color: #00A79D;
   color: #FFFFFF;
   border: none;
-  height: 5vh;
+  height: 28px;
+  font-size: 14px;
 }
 .save:hover {
   background-color: #045E55;
-  /*color: #FFFFFF;*/
 }
 
 .body {
@@ -56,13 +57,14 @@ article {
 
 h5 {
   color: #6D6E71;
-  font-size: 1.8em;
+  font-size: 1.4em;
   margin: 10px 0 0 0;
 }
 p {
   margin: 10px 0 40px 0;
   color: #939598;
-  font-size: 1.2em;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 0.9em;
 }
 
 h6 {
@@ -71,13 +73,14 @@ h6 {
   left: 80px;
   bottom: -25px;
   font-size: 1em;
+  color: #6D6E71;
 }
 .quality {
   position: absolute;
   left: 140px;
   bottom: 12px;
-  font-size: 1em;
-  /*margin: auto;*/
+  font-size: 0.8em;
+  font-family: 'Open Sans', sans-serif;
 }
 .entries {
   width: 100%;
@@ -86,8 +89,8 @@ h6 {
 
 .search-input {
   width: 89%;
+  height: 15px;
   margin-top: 15px;
-
 }
 
 .idea-card {
@@ -100,8 +103,8 @@ h6 {
 
 .delete {
   position: absolute;
-  top: 5px;
-  right: 12px;
+  top: 3px;
+  right: 5px;
   background-image: url(images/delete.svg);
   width: 20px;
   height: 20px;
