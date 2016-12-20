@@ -100,23 +100,37 @@ h6 {
 
 .delete {
   position: absolute;
-  top: 15px;
+  top: 5px;
   right: 12px;
+  background-image: url(images/delete.svg);
   width: 20px;
   height: 20px;
+  cursor: pointer;
+}
+.delete:hover {
+  background-image: url(images/delete-hover.svg);
 }
 .upvote {
   position: absolute;
   bottom: 10px;
   left: 7px;
+  background-image: url(images/upvote.svg);
   width: 20px;
   height: 20px;
+  cursor: pointer;
 }
-
+.upvote:hover {
+  background-image: url(images/upvote-hover.svg);
+}
 .downvote {
   position: absolute;
   bottom: 10px;
   left: 35px;
+  background-image: url(images/downvote.svg);
   width: 20px;
   height: 20px;
+  cursor: pointer;
+}
+.downvote:hover {
+  background-image: url(images/downvote-hover.svg);
 }
