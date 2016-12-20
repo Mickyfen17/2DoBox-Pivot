@@ -120,10 +120,10 @@ function displayIdea(newIdeaContent) {
   $(".entries").prepend(`
     <article id="${newIdeaContent.id}" class="idea-card">
     <h5 class="edit" contenteditable>${newIdeaContent.title}</h5>
-    <img class="delete" src="images/delete.svg">
+    <div class="delete"></div>
     <p class="edit" contenteditable>${newIdeaContent.body}</p>
-    <img class="upvote" src="images/upvote.svg">
-    <img class="downvote" src="images/downvote.svg">
+    <div class="upvote"></div>
+    <div class="downvote"></div>
     <h6>quality:<h5 class="quality">${newIdeaContent.quality}</h5></h6>
     </article>`
   );

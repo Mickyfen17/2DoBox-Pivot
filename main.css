@@ -1,10 +1,9 @@
 body {
   text-align: center;
-  font-family: 'Open Sans', sans-serif;
+  margin: -14px 0 0 0;
+}
 
-  }
-
-  .box {
+.box {
   width: 100%;
   background-color: #E5F3F2;
 
@@ -36,58 +35,62 @@ article {
   margin: 10px auto;
   padding: 3px 0px;
   width: 90%;
-  font-size: .4em;
+  height: 15px;
+  font-size: .9em;
+  border: 2px solid #D1D3D4;
 }
 .save {
   background-color: #00A79D;
   color: #FFFFFF;
   border: none;
-  height: 5vh;
+  height: 28px;
+  font-size: 14px;
 }
 .save:hover {
   background-color: #045E55;
-  /*color: #FFFFFF;*/
-}
-
-.body {
-  line-height: normal;
-  height: 100px;
 }
 
 h5 {
   color: #6D6E71;
-  font-size: 1.8em;
+  font-size: 1.4em;
   margin: 10px 0 0 0;
 }
 p {
-  margin: 10px 0 40px 0;
+  margin: 10px 0 45px 0;
   color: #939598;
-  font-size: 1.2em;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 0.9em;
 }
 
 h6 {
   width: 50%;
   position: absolute;
   left: 80px;
-  bottom: -25px;
+  bottom: 17px;
+  margin: 0;
   font-size: 1em;
+  color: #6D6E71;
 }
 .quality {
   position: absolute;
   left: 140px;
-  bottom: 12px;
-  font-size: 1em;
-  /*margin: auto;*/
+  bottom: 17px;
+  font-size: 0.8em;
+  font-family: 'Open Sans', sans-serif;
 }
 .entries {
   width: 100%;
   height: 60vh;
+  overflow: auto;
 }
 
 .search-input {
   width: 89%;
-  margin-top: 15px;
-
+  height: 15px;
+  margin: 15px 0;
+  font-size: 0.9em;
+  border: 2px solid #D1D3D4;
+  padding: 3px 0px;
 }
 
 .idea-card {
@@ -100,23 +103,37 @@ h6 {
 
 .delete {
   position: absolute;
-  top: 15px;
-  right: 12px;
+  top: 3px;
+  right: 5px;
+  background-image: url(images/delete.svg);
   width: 20px;
   height: 20px;
+  cursor: pointer;
+}
+.delete:hover {
+  background-image: url(images/delete-hover.svg);
 }
 .upvote {
   position: absolute;
-  bottom: 10px;
+  bottom: 15px;
   left: 7px;
+  background-image: url(images/upvote.svg);
   width: 20px;
   height: 20px;
+  cursor: pointer;
 }
-
+.upvote:hover {
+  background-image: url(images/upvote-hover.svg);
+}
 .downvote {
   position: absolute;
-  bottom: 10px;
+  bottom: 15px;
   left: 35px;
+  background-image: url(images/downvote.svg);
   width: 20px;
   height: 20px;
+  cursor: pointer;
+}
+.downvote:hover {
+  background-image: url(images/downvote-hover.svg);
 }
