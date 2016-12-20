@@ -19,7 +19,9 @@ $(".entries").on("click", ".delete", function() {
 //event listener for upvote
 $(".entries").on("click", ".upvote", function () {
   var thisQuality = $(this).siblings(".quality");
+  console.log(thisQuality.text());
   upVote(thisQuality);
+  console.log(thisQuality.text());
   updateStoredQuality(this, thisQuality);
 });
 //event listener to downvote
@@ -45,40 +47,28 @@ function downVote(currentQuality) {
   }
 }
 //updates stored quality values after a vote click
-function updateStoredQuality(ideaCard, newQuality) {
-  var id = $(ideaCard).parent().attr("id");
+function updateStoredQuality(voteButton, newQuality) {
+  var id = $(voteButton).parent().attr("id");
   var itemsToEdit = JSON.parse(localStorage.getItem(id));
   itemsToEdit.quality = newQuality.text();
   localStorage.setItem(id, JSON.stringify(itemsToEdit));
 }
 //event listener to edit title and update title value in local storage
 $(".entries").on("blur", "h5", function() {
-  var id = $(this).parent().attr("id");
-  var updatedTitle = $(this).text();
-  var itemsToEdit = JSON.parse(localStorage.getItem(id));
-  itemsToEdit.title = updatedTitle;
-  localStorage.setItem(id, JSON.stringify(itemsToEdit));
+  editIdeas(this, "title");
 });
 //event listener to edit body and update body value in local storage
 $(".entries").on("blur", "p", function() {
-  var id = $(this).parent().attr("id");
-  var updatedIdea = $(this).text();
-  var itemsToEdit = JSON.parse(localStorage.getItem(id));
-  itemsToEdit.body = updatedIdea;
-  localStorage.setItem(id, JSON.stringify(itemsToEdit));
+  editIdeas(this, "body");
 });
 
-// $(".entries").on("blur", ".edit", function() {
-//   var id = $(this).parent().attr("id");
-//   var updatedTitle = $(this).closest("h5").text();
-//   var updatedIdea = $(this).closest("p").text();
-//   // console.log(updatedIdea + " " + updatedTitle);
-//   var newIdea = new NewIdea(id, updatedTitle, updatedIdea);
-//   console.log(newIdea);
-//   console.log(id);
-//   // stringObj(id, newIdea);
-// });
-
+function editIdeas(item, content) {
+  var id = $(item).parent().attr("id");
+  var updatedIdea = item.innerText;
+  var itemsToEdit = JSON.parse(localStorage.getItem(id));
+  itemsToEdit[content] = updatedIdea;
+  localStorage.setItem(id, JSON.stringify(itemsToEdit));
+}
 
 //constructor function
 function NewIdea(id, title, body) {
@@ -111,7 +101,7 @@ function retrieveIdeas() {
   $(".idea-card").remove();
   for(var key in localStorage) {
     var parsed = JSON.parse(localStorage[key]);
-    console.log(parsed);
+    // console.log(parsed);
     displayIdea(parsed);
   }
 }
@@ -119,26 +109,22 @@ function retrieveIdeas() {
 function displayIdea(newIdeaContent) {
   $(".entries").prepend(`
     <article id="${newIdeaContent.id}" class="idea-card">
-    <h5 class="edit" contenteditable>${newIdeaContent.title}</h5>
-    <div class="delete"></div>
-    <p class="edit" contenteditable>${newIdeaContent.body}</p>
-    <div class="upvote"></div>
-    <div class="downvote"></div>
-    <h6>quality:<h5 class="quality">${newIdeaContent.quality}</h5></h6>
+      <h5 class="edit" contenteditable>${newIdeaContent.title}</h5>
+      <div class="delete"></div>
+      <p class="edit" contenteditable>${newIdeaContent.body}</p>
+      <div class="upvote"></div>
+      <div class="downvote"></div>
+      <h6>quality:<h5 class="quality">${newIdeaContent.quality}</h5></h6>
     </article>`
   );
 }
-
-
+//Search function to toggle display of idea cards
 $(".search-input").on("keyup", function() {
   var ideas = $(".idea-card");
-  var searchText = $(this).val();
-  for(var i = 0; i < ideas.length; i++) {
-    var idea = ideas[i].innerText;
-    if(idea.indexOf(searchText) === -1) {
-      $(ideas[i]).slideUp("slow");
-    } else {
-      $(ideas[i]).slideDown("slow");
-    }
-  }
+  var searchText = $(this).val().toLowerCase();
+  ideas.each(function(i, idea) {
+    var ideaText = $(idea).text().toLowerCase();
+    var matched = ideaText.indexOf(searchText) !== -1;
+    $(idea).toggle(matched);
+  });
 });
