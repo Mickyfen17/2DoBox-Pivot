@@ -136,9 +136,9 @@ $(".search-input").on("keyup", function() {
   for(var i = 0; i < ideas.length; i++) {
     var idea = ideas[i].innerText;
     if(idea.indexOf(searchText) === -1) {
-      $(ideas[i]).hide();
+      $(ideas[i]).slideUp("slow");
     } else {
-      $(ideas[i]).show();
+      $(ideas[i]).slideDown("slow");
     }
   }
 });
