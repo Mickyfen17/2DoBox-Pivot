@@ -1,20 +1,21 @@
 body {
-  text-align: center;
   margin: -14px 0 0 0;
+  text-align: center;
 }
 
 .box {
   width: 100%;
   background-color: #E5F3F2;
+  padding-top: 20px;
 
 }
 
  h1 {
-  margin: 15px 0 50px 0;
-  text-align: center;
+  margin: 15px 0 12px 0;
   font-family: 'Roboto Slab', sans-serif;
   font-size: 2.8em;
   font-weight: 700;
+  text-align: center;
 }
 
 .logo {
@@ -25,30 +26,25 @@ span {
   color: #6D6E71;
 }
 
-article {
-  border-bottom: 1px solid #D1D3D4;
-  width: 80%;
-  padding-left: 10px;
-
-}
 .input {
   margin: 10px auto;
   padding: 3px 0px;
-  width: 90%;
   height: 15px;
-  font-size: .9em;
+  width: 90%;
   border: 2px solid #D1D3D4;
+  font-size: .9em;
 }
 .idea {
   height: 80px;
   resize: none;
 }
 .save {
+  margin: 0px 0 20px 0;
+  height: 30px;
   background-color: #00A79D;
-  color: #FFFFFF;
   border: none;
-  height: 28px;
   font-size: 14px;
+  color: #FFFFFF;
 }
 .save:hover {
   background-color: #045E55;
@@ -58,10 +54,16 @@ article {
   background-color: #939598;
 }
 
+article {
+  padding-left: 10px;
+  width: 80%;
+  border-bottom: 1px solid #D1D3D4;
+}
+
 h5 {
+  margin: 10px 0 0 0;
   color: #6D6E71;
   font-size: 1.4em;
-  margin: 10px 0 0 0;
 }
 p {
   margin: 10px 0 45px 0;
@@ -71,52 +73,52 @@ p {
 }
 
 h6 {
-  width: 50%;
   position: absolute;
-  left: 80px;
   bottom: 17px;
+  left: 80px;
   margin: 0;
-  font-size: 1em;
+  width: 50%;
   color: #6D6E71;
+  font-size: 1em;
 }
 .quality {
   position: absolute;
-  left: 140px;
   bottom: 17px;
-  font-size: 0.8em;
+  left: 140px;
   font-family: 'Open Sans', sans-serif;
+  font-size: 0.8em;
 }
 .entries {
-  width: 100%;
   height: 60vh;
+  width: 100%;
   overflow: auto;
 }
 
 .search-input {
-  width: 89%;
-  height: 15px;
   margin: 15px 0;
-  font-size: 0.9em;
-  border: 2px solid #D1D3D4;
   padding: 3px 0px;
+  height: 15px;
+  width: 89%;
+  border: 2px solid #D1D3D4;
+  font-size: 0.9em;
 }
 
 .idea-card {
   position: relative;
-  width: 89%;
   margin: 0 auto;
+  width: 89%;
   font-family: 'Roboto';
   text-align: left;
 }
 
 .delete {
   position: absolute;
-  top: 3px;
   right: 5px;
-  background-image: url(images/delete.svg);
-  width: 20px;
+  top: 3px;
   height: 20px;
+  width: 20px;
   cursor: pointer;
+  background-image: url(images/delete.svg);
 }
 .delete:hover {
   background-image: url(images/delete-hover.svg);
@@ -125,10 +127,10 @@ h6 {
   position: absolute;
   bottom: 15px;
   left: 7px;
-  background-image: url(images/upvote.svg);
-  width: 20px;
   height: 20px;
+  width: 20px;
   cursor: pointer;
+  background-image: url(images/upvote.svg);
 }
 .upvote:hover {
   background-image: url(images/upvote-hover.svg);
@@ -137,9 +139,9 @@ h6 {
   position: absolute;
   bottom: 15px;
   left: 35px;
-  background-image: url(images/downvote.svg);
-  width: 20px;
   height: 20px;
+  width: 20px;
+  background-image: url(images/downvote.svg);
   cursor: pointer;
 }
 .downvote:hover {
@@ -150,13 +152,12 @@ h6 {
   .input, .search-input {
     width: 50%;
   }
-
-  textarea {
-    height: 20px;
+  .idea {
+    height: 15px;
   }
   .entries {
-    width: 50%;
     margin: 0 auto;
+    width: 50%;
   }
   .idea-card {
     width: 98%

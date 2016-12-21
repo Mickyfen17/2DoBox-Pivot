@@ -5,16 +5,6 @@ window.onload = function() {
   retrieveIdeas();
 };
 
-$(".title, .idea").on("keyup", function() {
-  enableSaveBtn();
-});
-
-function enableSaveBtn() {
-  var title = $(".title").val();
-  var idea = $(".idea").val();
-  var saveBtn = $(".save");
-  title.length > 0 && idea.length > 0 ? saveBtn.attr('disabled', false) : saveBtn.attr('disabled', true)
-}
 //event listener for save button
 $(".save").on("click", function() {
   uniqueID = Date.now();
@@ -22,26 +12,33 @@ $(".save").on("click", function() {
   clearInputs();
   enableSaveBtn();
 });
+
+//keyup event listener for title and idea inputs
+$(".title, .idea").on("keyup", function() {
+  enableSaveBtn();
+});
+
 //deletes the idea card from DOM and storage
 $(".entries").on("click", ".delete", function() {
   var id = $(this).parent().attr("id");
   localStorage.removeItem(id);
   $(this).parent().remove();
 });
+
 //event listener for upvote
 $(".entries").on("click", ".upvote", function () {
   var thisQuality = $(this).siblings(".quality");
-  console.log(thisQuality.text());
   upVote(thisQuality);
-  console.log(thisQuality.text());
   updateStoredQuality(this, thisQuality);
 });
+
 //event listener to downvote
 $(".entries").on("click", ".downvote", function () {
   var thisQuality = $(this).siblings(".quality");
   downVote(thisQuality);
   updateStoredQuality(this, thisQuality);
 });
+
 //conditional to check and change quality upon upvote
 function upVote(currentQuality) {
   if (currentQuality.text() === "swill") {
@@ -50,6 +47,7 @@ function upVote(currentQuality) {
     currentQuality.text("genius");
   }
 }
+
 //conditional to check and change quality upon downvote
 function downVote(currentQuality) {
   if (currentQuality.text() === "genius") {
@@ -58,6 +56,7 @@ function downVote(currentQuality) {
     currentQuality.text("swill");
   }
 }
+
 //updates stored quality values after a vote click
 function updateStoredQuality(voteButton, newQuality) {
   var id = $(voteButton).parent().attr("id");
@@ -65,21 +64,32 @@ function updateStoredQuality(voteButton, newQuality) {
   itemsToEdit.quality = newQuality.text();
   localStorage.setItem(id, JSON.stringify(itemsToEdit));
 }
+
 //event listener to edit title and update title value in local storage
 $(".entries").on("blur", "h5", function() {
   editIdeas(this, "title");
 });
+
 //event listener to edit body and update body value in local storage
 $(".entries").on("blur", "p", function() {
   editIdeas(this, "body");
 });
 
+//function to edit content of title and body
 function editIdeas(item, content) {
   var id = $(item).parent().attr("id");
   var updatedIdea = item.innerText;
   var itemsToEdit = JSON.parse(localStorage.getItem(id));
   itemsToEdit[content] = updatedIdea;
   localStorage.setItem(id, JSON.stringify(itemsToEdit));
+}
+
+//Function to enable and disable save button
+function enableSaveBtn() {
+  var title = $(".title").val();
+  var idea = $(".idea").val();
+  var saveBtn = $(".save");
+  title.length > 0 && idea.length > 0 ? saveBtn.attr('disabled', false) : saveBtn.attr('disabled', true)
 }
 
 //constructor function
@@ -89,11 +99,13 @@ function NewIdea(id, title, body) {
   this.body = body;
   this.quality = "swill";
 }
+
 //clear input fields
 function clearInputs () {
   $(".title").val("");
   $(".idea").val("");
 }
+
 //grabs input value and assigns to new idea object
 function grabValues() {
   var title = $(".title").val();
@@ -101,6 +113,7 @@ function grabValues() {
   var newIdea = new NewIdea(uniqueID, title, idea);
   stringObj(uniqueID, newIdea);
 }
+
 //function to stringify new object and save to local storage
 function stringObj(id, ideaObj) {
   var stringObj = JSON.stringify(ideaObj);
@@ -113,10 +126,10 @@ function retrieveIdeas() {
   $(".idea-card").remove();
   for(var key in localStorage) {
     var parsed = JSON.parse(localStorage[key]);
-    // console.log(parsed);
     displayIdea(parsed);
   }
 }
+
 //displays parsed Ideas to DOM//
 function displayIdea(newIdeaContent) {
   $(".entries").prepend(`
@@ -130,6 +143,7 @@ function displayIdea(newIdeaContent) {
     </article>`
   );
 }
+
 //Search function to toggle display of idea cards
 $(".search-input").on("keyup", function() {
   var ideas = $(".idea-card");
