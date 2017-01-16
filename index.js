@@ -1,7 +1,5 @@
 //on load retrieve all items from local storage
-window.onload = function() {
-  retrieveIdeas();
-};
+$(document).ready(retrieveIdeas);
 
 //event listener for save button
 $(".save").on("click", function() {
@@ -12,9 +10,7 @@ $(".save").on("click", function() {
 });
 
 //keyup event listener for title and idea inputs
-$(".title, .idea").on("keyup", function() {
-  enableSaveBtn();
-});
+$(".title, .idea").on("keyup", enableSaveBtn);
 
 //deletes the idea card from DOM and storage
 $(".entries").on("click", ".delete", function() {
