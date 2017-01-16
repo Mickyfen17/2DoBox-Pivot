@@ -1,5 +1,3 @@
-var uniqueID;
-
 //on load retrieve all items from local storage
 window.onload = function() {
   retrieveIdeas();
@@ -7,8 +5,8 @@ window.onload = function() {
 
 //event listener for save button
 $(".save").on("click", function() {
-  uniqueID = Date.now();
-  grabValues();
+  var uniqueID = Date.now();
+  grabValues(uniqueID);
   clearInputs();
   enableSaveBtn();
 });
@@ -89,7 +87,7 @@ function enableSaveBtn() {
   var title = $(".title").val();
   var idea = $(".idea").val();
   var saveBtn = $(".save");
-  title.length > 0 && idea.length > 0 ? saveBtn.attr('disabled', false) : saveBtn.attr('disabled', true)
+  return title.length > 0 && idea.length > 0 ? saveBtn.attr('disabled', false) : saveBtn.attr('disabled', true);
 }
 
 //constructor function
@@ -107,7 +105,7 @@ function clearInputs () {
 }
 
 //grabs input value and assigns to new idea object
-function grabValues() {
+function grabValues(uniqueID) {
   var title = $(".title").val();
   var idea = $(".idea").val();
   var newIdea = new NewIdea(uniqueID, title, idea);
