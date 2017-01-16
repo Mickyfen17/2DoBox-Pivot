@@ -39,20 +39,12 @@ $(".entries").on("click", ".downvote", function () {
 
 //conditional to check and change quality upon upvote
 function upVote(currentQuality) {
-  if (currentQuality.text() === "swill") {
-    currentQuality.text("plausible");
-  }else if (currentQuality.text() === "plausible") {
-    currentQuality.text("genius");
-  }
+  return currentQuality.text() === "swill" ? currentQuality.text("plausible") : currentQuality.text("genius");
 }
 
 //conditional to check and change quality upon downvote
 function downVote(currentQuality) {
-  if (currentQuality.text() === "genius") {
-    currentQuality.text("plausible");
-  }else if (currentQuality.text() === "plausible") {
-    currentQuality.text("swill");
-  }
+  return currentQuality.text() === "genius" ? currentQuality.text("plausible") : currentQuality.text("swill");
 }
 
 //updates stored quality values after a vote click
