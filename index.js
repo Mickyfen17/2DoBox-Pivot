@@ -25,27 +25,17 @@ $(".entries").on("click", ".delete", function() {
 
 //event listener for upvote
 $(".entries").on("click", ".upvote", function () {
-  var thisQuality = $(this).siblings(".quality");
-  upVote(thisQuality);
-  updateStoredQuality(this, thisQuality);
+  var currentQuality = $(this).siblings(".quality");
+  currentQuality.text() === "swill" ? currentQuality.text("plausible") : currentQuality.text("genius");
+  updateStoredQuality(this, currentQuality);
 });
 
 //event listener to downvote
 $(".entries").on("click", ".downvote", function () {
-  var thisQuality = $(this).siblings(".quality");
-  downVote(thisQuality);
-  updateStoredQuality(this, thisQuality);
+  var currentQuality = $(this).siblings(".quality");
+  currentQuality.text() === "genius" ? currentQuality.text("plausible") : currentQuality.text("swill");
+  updateStoredQuality(this, currentQuality);
 });
-
-//conditional to check and change quality upon upvote
-function upVote(currentQuality) {
-  return currentQuality.text() === "swill" ? currentQuality.text("plausible") : currentQuality.text("genius");
-}
-
-//conditional to check and change quality upon downvote
-function downVote(currentQuality) {
-  return currentQuality.text() === "genius" ? currentQuality.text("plausible") : currentQuality.text("swill");
-}
 
 //updates stored quality values after a vote click
 function updateStoredQuality(voteButton, newQuality) {
