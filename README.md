@@ -8,14 +8,15 @@ Adding a new ToDo
 
 On the application’s main page, a user should:
 
-See two text boxes for entering the “Title” and “Task” for a new TODO, and a “Save” button for committing that TODO. ~~Scratch this.~~
+~~See two text boxes for entering the “Title” and “Task” for a new TODO, and a “Save” button for committing that TODO.~~ 
 
 When a user clicks “Save”:
 
-A new TODO with the provided title and body should appear in the TODO list.
-The text fields should be cleared and ready to accept a new TODO.
+~~A new TODO with the provided title and body should appear in the TODO list.~~
+~~The text fields should be cleared and ready to accept a new TODO.
 The page should not reload.
-The TODO should be persisted. It should still be present upon reloading the page
+The TODO should be persisted. It should still be present upon reloading the page~~
+
 Deleting an existing TODO
 
 When viewing the TODO list:
