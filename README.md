@@ -2,7 +2,7 @@
 
 To do list:
 
-Phase 1
+#Phase 1
 
 Adding a new ToDo
 
@@ -18,14 +18,14 @@ When a user clicks “Save”:
 ~~The TODO should be persisted. It should still be present upon reloading the page~~
 Deleting an existing TODO
 
-##When viewing the TODO list:
+###When viewing the TODO list:
 
 Each TODO in the list should have a link or button to “Delete” (or 𝗫).
 Upon clicking “Delete”, the appropriate TODO should be removed from the list.
 The page should not reload when an idea is deleted.
 The TODO should be removed from localStorage. It should not re-appear on next page load.
 
-##Editing an existing TODO
+###Editing an existing TODO
 
 When a user clicks the title or task of a TODO in the list, that text should:
 
@@ -33,7 +33,7 @@ Become an editable text field, pre-populated with the existing TODO title or tas
 The user should be able to “commit” their changes by pressing “Enter/Return” or by clicking outside of the text field.
 If the user reloads the page, their edits will be reflected.
 
-##Searching
+###Searching
 
 We’d like our users to be able to easily find specific TODOs they already created, so let’s provide them with a filtering interface on the TODO list.
 
@@ -42,7 +42,7 @@ As a user types in the search box, the list of TODOs should filter in real time 
 The page should not reload.
 Clearing the search box should restore all the ideas to the list.
 
-##Es6 Usage
+###Es6 Usage
 
 You should make sure that Webpack is set up to use es6 (hint: the key words here are babel, es6 and webpack)
 
@@ -54,18 +54,18 @@ Note: You should always try to not ‘mix and match’ in your code, so if you d
 
 Marking a TODO as completed
 
-##When viewing the TODO list:
+###When viewing the TODO list:
 
 Each TODO in the list should have a button called Completed Task
 When a the user clicks the Completed Task button the idea should be either grayed out and/or shown with a strike through text
 On reloading the page the page the completed TODOs should be exempted from the list.
 When the user clicks the show completed TODOs The completed TODOs should be loaded back onto the top of the TODO list.
 
-##Accessibility
+###Accessibility
 
 Your web application should pass aXe-core tests and should be tab index accessible. For tab indexing refer to this resource
 
-##Importance
+###Importance
 
 Each TODO should be given a level of importance.
 
