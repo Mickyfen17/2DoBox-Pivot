@@ -35,7 +35,7 @@ span {
   text-indent: 5px;
 }
 
-.idea {
+.todo {
   height: 80px;
   resize: none;
 }
@@ -110,7 +110,7 @@ h6 {
   text-indent: 5px;
 }
 
-.idea-card {
+.todo-card {
   position: relative;
   margin: 0 auto;
   width: 89%;
@@ -162,14 +162,14 @@ h6 {
   .input, .search-input {
     width: 50%;
   }
-  .idea {
+  .todo {
     height: 15px;
   }
   .entries {
     margin: 0 auto;
     width: 50%;
   }
-  .idea-card {
+  .todo-card {
     width: 98%
   }
 }
