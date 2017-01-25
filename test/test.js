@@ -18,23 +18,29 @@ describe("testing 2Do Pivot", function() {
 
   test.it("should allow me to input a title", function() {
     const title = driver.findElement({className: "title"});
-    title.sendKeys("Testing the title input field").then(() => title.getAttribute("value")).then((value) => {
+    title.sendKeys("Testing the title input field")
+         .then(() => title.getAttribute("value"))
+         .then((value) => {
       assert.equal(value, "Testing the title input field");
     });
   });
 
   test.it("should allow me to input a task", function() {
     const task = driver.findElement({className: "task"});
-    task.sendKeys("Testing the task input field").then(() => task.getAttribute("value")).then((value) => {
+    task.sendKeys("Testing the task input field")
+        .then(() => task.getAttribute("value"))
+        .then((value) => {
       assert.equal(value, "Testing the task input field");
     });
   });
 
   test.it("Should add a new todo to the DOM", function() {
     const title = driver.findElement({className: "title"});
-    const task = driver.findElement({className: "task"});
-    const save = driver.findElement({className: "save"});
-    title.sendKeys("Testing the title").then(() => task.sendKeys("Testing the tasks")).then(() => save.click());
+    const task  = driver.findElement({className: "task"});
+    const save  = driver.findElement({className: "save"});
+    title.sendKeys("Testing the title")
+         .then(() => task.sendKeys("Testing the tasks"))
+         .then(() => save.click());
 
     const items = driver.findElement({className: "edit"});
 
@@ -42,5 +48,5 @@ describe("testing 2Do Pivot", function() {
       assert.equal(value, "Testing the title")
     );
   });
-  
+
  });
