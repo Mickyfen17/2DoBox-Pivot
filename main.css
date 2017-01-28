@@ -40,7 +40,8 @@ span {
   resize: none;
 }
 
-.save {
+.save,
+.show {
   margin: 0px 0 20px 0;
   height: 30px;
   background-color: #00A79D;
@@ -49,9 +50,11 @@ span {
   color: #FFFFFF;
   cursor: pointer;
 }
+.show:hover,
 .save:hover {
   background-color: #045E55;
 }
+.show:disabled,
 .save:disabled {
   background-color: #939598;
   cursor: default;
