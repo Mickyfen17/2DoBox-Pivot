@@ -89,7 +89,7 @@ h6 {
 .quality {
   position: absolute;
   bottom: 17px;
-  left: 140px;
+  left: 170px;
   font-family: 'Open Sans', sans-serif;
   font-size: 0.8em;
 }
@@ -125,7 +125,8 @@ h6 {
   height: 20px;
   width: 20px;
   cursor: pointer;
-  background-image: url(images/delete.svg);
+  background: transparent url(images/delete.svg);
+  border: none;
 }
 .delete:hover {
   background-image: url(images/delete-hover.svg);
@@ -138,7 +139,8 @@ h6 {
   height: 20px;
   width: 20px;
   cursor: pointer;
-  background-image: url(images/upvote.svg);
+  background: transparent url(images/upvote.svg);
+  border: none;
 }
 .upvote:hover {
   background-image: url(images/upvote-hover.svg);
@@ -150,7 +152,8 @@ h6 {
   left: 35px;
   height: 20px;
   width: 20px;
-  background-image: url(images/downvote.svg);
+  background: transparent url(images/downvote.svg);
+  border: none;
   cursor: pointer;
 }
 .downvote:hover {
