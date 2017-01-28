@@ -165,6 +165,13 @@ h6 {
   right: 5px;
   bottom: 15px;
   cursor: pointer;
+  border: none;
+  border-radius: 10px;
+  background: #d1d3d4;
+  color: #FFF;
+}
+.complete:hover {
+  background: #428bca;
 }
 
 .completeTodo {
