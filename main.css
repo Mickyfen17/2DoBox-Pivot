@@ -160,6 +160,13 @@ h6 {
   background-image: url(images/downvote-hover.svg);
 }
 
+.complete {
+  position: absolute;
+  right: 5px;
+  bottom: 15px;
+  cursor: pointer;
+}
+
 
 @media screen and (min-width:600px) {
   .input, .search-input {
