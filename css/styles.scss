@@ -37,8 +37,22 @@ h1 {
   text-indent: 5px;
 }
 
-#char-count {
-  margin: 0;
+.task-input-wrapper {
+  position: relative;
+  width: 90%;
+  margin: 0 auto 25px auto;
+  .task {
+    width: 99%;
+    height: 60px;
+  }
+  #char-count {
+    margin: 0;
+    position: absolute;
+    bottom: -15px;
+    right: 0;
+    color: #00A79D;
+    font-family: $main-font;
+  }
 }
 
 .todo {
@@ -183,7 +197,9 @@ article {
 }
 
 @media screen and (min-width:600px) {
-  .input, .search-input {
+  .input,
+  .task-input-wrapper,
+  .search-input {
     width: 50%;
   }
   .todo {
