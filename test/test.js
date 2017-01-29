@@ -123,4 +123,48 @@ describe("testing 2Do Pivot", function() {
     );
   });
 
+  test.it("Should add new todo and increase importance", function() {
+    const title = driver.findElement({className: "title"});
+    const task  = driver.findElement({className: "task"});
+    const save  = driver.findElement({className: "save"});
+    title.sendKeys("Testing the title")
+         .then(() => task.sendKeys("Testing the tasks"))
+         .then(() => save.click()
+    );
+    const quality = driver.findElement({className: "quality"});
+    quality.then((value) => value.getText())
+         .then((value) =>
+      assert.equal(value, "Normal")
+    );
+    driver.findElement({className: "upvote"}).then((value) =>
+      value.click()
+    );
+    quality.then((value) => value.getText())
+         .then((value) =>
+      assert.equal(value, "High")
+    );
+  });
+
+  test.it("Should add new todo and decrease importance", function() {
+    const title = driver.findElement({className: "title"});
+    const task  = driver.findElement({className: "task"});
+    const save  = driver.findElement({className: "save"});
+    title.sendKeys("Testing the title")
+         .then(() => task.sendKeys("Testing the tasks"))
+         .then(() => save.click()
+    );
+    const quality = driver.findElement({className: "quality"});
+    quality.then((value) => value.getText())
+         .then((value) =>
+      assert.equal(value, "Normal")
+    );
+    driver.findElement({className: "downvote"}).then((value) =>
+      value.click()
+    );
+    quality.then((value) => value.getText())
+         .then((value) =>
+      assert.equal(value, "Low")
+    );
+  });
+
 });
