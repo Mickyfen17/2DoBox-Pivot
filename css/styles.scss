@@ -1,4 +1,7 @@
-/*body {
+$main-font : 'Roboto Slab', sans-serif;
+$todo-card-font : 'Open Sans', sans-serif;
+
+body {
   margin: 0;
   text-align: center;
 }
@@ -11,7 +14,7 @@
 
 h1 {
   margin: 15px 0 12px 0;
-  font-family: 'Roboto Slab', sans-serif;
+  font-family: $main-font;
   font-size: 2.8em;
   font-weight: 700;
   text-align: center;
@@ -19,13 +22,12 @@ h1 {
 
 .logo {
   color: #00A79D;
+  span {
+    color: #6D6E71;
+  }
 }
 
-span {
-  color: #6D6E71;
-}*/
-
-/*.input {
+.input {
   margin: 10px auto;
   padding: 3px 0px;
   height: 15px;
@@ -38,9 +40,9 @@ span {
 .todo {
   height: 80px;
   resize: none;
-}*/
+}
 
-/*.save,
+.save,
 .show {
   margin: 0px 0 20px 0;
   height: 30px;
@@ -49,61 +51,56 @@ span {
   font-size: 14px;
   color: #FFFFFF;
   cursor: pointer;
+  &:hover {
+    background-color: #045E55;
+  }
+  &:disabled {
+    background-color: #939598;
+    cursor: default;
+  }
 }
-.show:hover,
-.save:hover {
-  background-color: #045E55;
-}
-.show:disabled,
-.save:disabled {
-  background-color: #939598;
-  cursor: default;
-}*/
 
-/*article {
+article {
   padding-left: 10px;
   width: 80%;
   border-bottom: 1px solid #D1D3D4;
+  h5 {
+    margin: 10px 0 0 0;
+    color: #6D6E71;
+    font-size: 1.4em;
+  }
+  p {
+    margin: 10px 0 45px 0;
+    color: #939598;
+    font-family: $todo-card-font;
+    font-size: 0.9em;
+  }
+  h6 {
+    position: absolute;
+    bottom: 17px;
+    left: 80px;
+    margin: 0;
+    width: 50%;
+    color: #6D6E71;
+    font-size: 1em;
+  }
 }
 
-h5 {
-  margin: 10px 0 0 0;
-  color: #6D6E71;
-  font-size: 1.4em;
-}
-
-p {
-  margin: 10px 0 45px 0;
-  color: #939598;
-  font-family: 'Open Sans', sans-serif;
-  font-size: 0.9em;
-}
-
-h6 {
-  position: absolute;
-  bottom: 17px;
-  left: 80px;
-  margin: 0;
-  width: 50%;
-  color: #6D6E71;
-  font-size: 1em;
-}*/
-
-/*.quality {
+.quality {
   position: absolute;
   bottom: 17px;
   left: 170px;
   font-family: 'Open Sans', sans-serif;
   font-size: 0.8em;
-}*/
+}
 
-/*.entries {
+.entries {
   height: 60vh;
   width: 100%;
   overflow: auto;
-}*/
+}
 
-/*.search-input {
+.search-input {
   margin: 15px 0;
   padding: 3px 0px;
   height: 15px;
@@ -119,34 +116,34 @@ h6 {
   width: 89%;
   font-family: 'Roboto';
   text-align: left;
-}*/
+}
 
-/*.delete {
+.delete {
   position: absolute;
   right: 5px;
   top: 3px;
   height: 20px;
   width: 20px;
   cursor: pointer;
-  background: transparent url(images/delete.svg);
+  background: transparent url(../images/delete.svg);
   border: none;
+  &:hover {
+    background-image: url(../images/delete-hover.svg);
+  }
 }
-.delete:hover {
-  background-image: url(images/delete-hover.svg);
-}*/
 
-/*.upvote {
+.upvote {
   position: absolute;
   bottom: 15px;
   left: 7px;
   height: 20px;
   width: 20px;
   cursor: pointer;
-  background: transparent url(images/upvote.svg);
+  background: transparent url(../images/upvote.svg);
   border: none;
-}
-.upvote:hover {
-  background-image: url(images/upvote-hover.svg);
+  &:hover {
+    background-image: url(../images/upvote-hover.svg);
+  }
 }
 
 .downvote {
@@ -155,15 +152,15 @@ h6 {
   left: 35px;
   height: 20px;
   width: 20px;
-  background: transparent url(images/downvote.svg);
+  background: transparent url(../images/downvote.svg);
   border: none;
   cursor: pointer;
+  &:hover {
+    background-image: url(../images/downvote-hover.svg);
+  }
 }
-.downvote:hover {
-  background-image: url(images/downvote-hover.svg);
-}*/
 
-/*.complete {
+.complete {
   position: absolute;
   right: 5px;
   bottom: 15px;
@@ -172,17 +169,16 @@ h6 {
   border-radius: 10px;
   background: #d1d3d4;
   color: #FFF;
-}
-.complete:hover {
-  background: #428bca;
+  &:hover {
+    background: #428bca;
+  }
 }
 
 .completeTodo {
   opacity: 0.5;
-}*/
+}
 
-
-/*@media screen and (min-width:600px) {
+@media screen and (min-width:600px) {
   .input, .search-input {
     width: 50%;
   }
@@ -196,4 +192,4 @@ h6 {
   .todo-card {
     width: 98%
   }
-}*/
+}
