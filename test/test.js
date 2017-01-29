@@ -213,4 +213,28 @@ describe("testing 2Do Pivot", function() {
     );
   });
 
+  test.it.only("Should add todo, add content to search and test if todo is displayed or not", function() {
+    const title = driver.findElement({className: "title"});
+    const task  = driver.findElement({className: "task"});
+    const save  = driver.findElement({className: "save"});
+    const search = driver.findElement({className: "search-input"});
+    title.sendKeys("Testing the title")
+         .then(() => task.sendKeys("Testing the tasks"))
+         .then(() => save.click()
+    );
+    const todo = driver.findElement({className: "todo-card"});
+    todo.isDisplayed().then((value) =>
+      assert.equal(value, true)
+    );
+    search.sendKeys("z").then(() => todo.isDisplayed())
+         .then((value) =>
+      assert.equal(value, false)
+    );
+    search.clear().then(() => search.sendKeys("test"))
+         .then(() => todo.isDisplayed())
+         .then((value) =>
+      assert.equal(value, true)
+    );
+  });
+
 });
