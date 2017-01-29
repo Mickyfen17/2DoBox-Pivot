@@ -49,4 +49,40 @@ describe("testing 2Do Pivot", function() {
     );
   });
 
+  test.it("Should add 5 new todos to the DOM", function() {
+    const title = driver.findElement({className: "title"});
+    const task  = driver.findElement({className: "task"});
+    const save  = driver.findElement({className: "save"});
+    for(let i = 0; i < 5; i++) {
+           title.sendKeys("Testing the title")
+                .then(() => task.sendKeys("Testing the tasks"))
+                .then(() => save.click());
+    }
+
+    driver.findElements({className: "todo-card"}).then((value) =>
+       assert.equal(value.length, 5)
+     );
+  });
+
+  test.it("Should add 3 new todos to the DOM and then delete one", function() {
+    const title = driver.findElement({className: "title"});
+    const task  = driver.findElement({className: "task"});
+    const save  = driver.findElement({className: "save"});
+    for(let i = 0; i < 3; i++) {
+           title.sendKeys("Testing the title")
+                .then(() => task.sendKeys("Testing the tasks"))
+                .then(() => save.click());
+    }
+    const deleteBtn  = driver.findElement({className: "delete"});
+    driver.findElements({className: "todo-card"}).then((value) =>
+       assert.equal(value.length, 3))
+       .then(() => deleteBtn.click());
+
+    driver.findElements({className: "todo-card"}).then((value) =>
+       assert.equal(value.length, 2)
+     );
+
+  });
+
+
  });
