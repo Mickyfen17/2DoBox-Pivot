@@ -167,4 +167,50 @@ describe("testing 2Do Pivot", function() {
     );
   });
 
+  test.it("Should check importance high limit", function() {
+    const title = driver.findElement({className: "title"});
+    const task  = driver.findElement({className: "task"});
+    const save  = driver.findElement({className: "save"});
+    title.sendKeys("Testing the title")
+         .then(() => task.sendKeys("Testing the tasks"))
+         .then(() => save.click()
+    );
+    const upvoteBtn = driver.findElement({className: "upvote"});
+    const quality = driver.findElement({className: "quality"});
+    quality.then((value) => value.getText())
+         .then((value) =>
+      assert.equal(value, "Normal")
+    );
+    for(let i = 0; i < 4; i++) {
+      upvoteBtn.click();
+    }
+    quality.then((value) => value.getText())
+         .then((value) =>
+      assert.equal(value, "Critical")
+    );
+  });
+
+  test.it("Should check importance low limit", function() {
+    const title = driver.findElement({className: "title"});
+    const task  = driver.findElement({className: "task"});
+    const save  = driver.findElement({className: "save"});
+    title.sendKeys("Testing the title")
+         .then(() => task.sendKeys("Testing the tasks"))
+         .then(() => save.click()
+    );
+    const downvoteBtn = driver.findElement({className: "downvote"});
+    const quality = driver.findElement({className: "quality"});
+    quality.then((value) => value.getText())
+         .then((value) =>
+      assert.equal(value, "Normal")
+    );
+    for(let i = 0; i < 4; i++) {
+      downvoteBtn.click();
+    }
+    quality.then((value) => value.getText())
+         .then((value) =>
+      assert.equal(value, "None")
+    );
+  });
+
 });
