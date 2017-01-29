@@ -40,10 +40,9 @@ describe("testing 2Do Pivot", function() {
     const save  = driver.findElement({className: "save"});
     title.sendKeys("Testing the title")
          .then(() => task.sendKeys("Testing the tasks"))
-         .then(() => save.click());
-
+         .then(() => save.click()
+    );
     const items = driver.findElement({className: "edit"});
-
     items.getText().then((value) =>
       assert.equal(value, "Testing the title")
     );
@@ -56,7 +55,8 @@ describe("testing 2Do Pivot", function() {
     for(let i = 0; i < 5; i++) {
            title.sendKeys("Testing the title")
                 .then(() => task.sendKeys("Testing the tasks"))
-                .then(() => save.click());
+                .then(() => save.click()
+      );
     }
 
     driver.findElements({className: "todo-card"}).then((value) =>
@@ -76,13 +76,51 @@ describe("testing 2Do Pivot", function() {
     const deleteBtn  = driver.findElement({className: "delete"});
     driver.findElements({className: "todo-card"}).then((value) =>
        assert.equal(value.length, 3))
-       .then(() => deleteBtn.click());
-
+       .then(() => deleteBtn.click()
+    );
     driver.findElements({className: "todo-card"}).then((value) =>
        assert.equal(value.length, 2)
-     );
-
+    );
   });
 
+  test.it("Should add new todo, click complete and check for completed status", function() {
+    const title = driver.findElement({className: "title"});
+    const task  = driver.findElement({className: "task"});
+    const save  = driver.findElement({className: "save"});
+    title.sendKeys("Testing the title")
+         .then(() => task.sendKeys("Testing the tasks"))
+         .then(() => save.click()
+    );
+    driver.findElements({className: "completeTodo"}).then((value) =>
+      assert.equal(value.length, 0)
+    );
+    const completeBtn = driver.findElement({className: "complete"});
+    completeBtn.click();
+    driver.findElements({className: "completeTodo"}).then((value) =>
+      assert.equal(value.length, 1)
+    );
+  });
 
- });
+  test.it("Should add new todo, click complete twice and that status is not complete", function() {
+    const title = driver.findElement({className: "title"});
+    const task  = driver.findElement({className: "task"});
+    const save  = driver.findElement({className: "save"});
+    title.sendKeys("Testing the title")
+         .then(() => task.sendKeys("Testing the tasks"))
+         .then(() => save.click()
+    );
+    driver.findElements({className: "completeTodo"}).then((value) =>
+      assert.equal(value.length, 0)
+    );
+    const completeBtn = driver.findElement({className: "complete"});
+    completeBtn.click();
+    driver.findElements({className: "completeTodo"}).then((value) =>
+      assert.equal(value.length, 1))
+      .then(() => completeBtn.click()
+    );
+    driver.findElements({className: "completeTodo"}).then((value) =>
+      assert.equal(value.length, 0)
+    );
+  });
+
+});
