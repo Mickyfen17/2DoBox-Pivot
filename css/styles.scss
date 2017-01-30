@@ -1,0 +1,229 @@
+@import "variables";
+
+body {
+  margin: 0;
+  text-align: center;
+}
+
+.box {
+  width: 100%;
+  background-color: $header-background-color;
+  padding-top: 20px;
+}
+
+h1 {
+  margin: 15px 0 12px 0;
+  font-family: $main-font;
+  font-size: 2.8em;
+  font-weight: $bold;
+  text-align: center;
+}
+
+.logo {
+  color: $header-color;
+  span {
+    color: $header-span-color;
+  }
+}
+
+.input {
+  margin: 10px auto;
+  padding: 3px 0px;
+  height: 15px;
+  width: 90%;
+  border: 2px solid $disabled-color;
+  font-size: .9em;
+  text-indent: 5px;
+  &::-webkit-input-placeholder {
+    color: $disabled-color;
+  }
+}
+
+.task-input-wrapper {
+  position: relative;
+  width: 90%;
+  margin: 0 auto 25px auto;
+  .task {
+    width: 99%;
+    height: 60px;
+  }
+  span {
+    margin: 0;
+    position: absolute;
+    bottom: -15px;
+    right: 0;
+    color: $header-color;
+    font-family: $main-font;
+    p {
+      margin: 0;
+      font-size: 20px;
+    }
+  }
+  .overCharCount {
+    color: red;
+  }
+}
+
+.todo {
+  height: 80px;
+  resize: none;
+}
+
+.save,
+.show {
+  margin: 0px 0 20px 0;
+  height: 30px;
+  background-color: $header-color;
+  border: none;
+  font-size: 14px;
+  color: $white;
+  cursor: $pointer-cursor;
+  &:hover {
+    background-color: $button-hover;
+  }
+  &:disabled {
+    background-color: $disabled-color;
+    cursor: default;
+  }
+}
+
+article {
+  padding-left: 10px;
+  width: 80%;
+  border-bottom: 1px solid $main-font-color;
+  h5 {
+    margin: 10px 0 0 0;
+    color: $main-font-color;
+    font-size: 1.4em;
+  }
+  p {
+    margin: 10px 0 45px 0;
+    color: $sub-font-color;
+    font-size: 0.9em;
+  }
+  h6 {
+    position: absolute;
+    bottom: 15px;
+    left: 70px;
+    margin: 0;
+    width: 50%;
+    color: $main-font-color;
+    font-size: 1em;
+  }
+}
+
+.quality {
+  position: absolute;
+  bottom: 16px;
+  left: 164px;
+  font-family: $todo-card-font;
+  font-size: 0.8em;
+  color: $sub-font-color;
+}
+
+.entries {
+  height: 60vh;
+  width: 100%;
+  overflow: auto;
+}
+
+.search-input {
+  margin: 15px 0;
+  padding: 3px 0px;
+  height: 15px;
+  width: 89%;
+  border: 2px solid $main-font-color;
+  font-size: 0.9em;
+  text-indent: 5px;
+  color: $sub-font-color;
+  &::-webkit-input-placeholder {
+    color: $disabled-color;
+  }
+}
+
+.todo-card {
+  position: relative;
+  margin: 0 auto;
+  width: 89%;
+  font-family: $todo-card-font ;
+  text-align: left;
+}
+
+.delete {
+  position: absolute;
+  right: 5px;
+  top: 3px;
+  height: 20px;
+  width: 20px;
+  cursor: $pointer-cursor;
+  background: transparent url(../images/delete.svg);
+  border: none;
+  &:hover {
+    background-image: url(../images/delete-hover.svg);
+  }
+}
+
+.upvote {
+  position: absolute;
+  bottom: 15px;
+  left: 7px;
+  height: 20px;
+  width: 20px;
+  cursor: $pointer-cursor;
+  background: transparent url(../images/upvote.svg);
+  border: none;
+  &:hover {
+    background-image: url(../images/upvote-hover.svg);
+  }
+}
+
+.downvote {
+  position: absolute;
+  bottom: 15px;
+  left: 35px;
+  height: 20px;
+  width: 20px;
+  background: transparent url(../images/downvote.svg);
+  border: none;
+  cursor: $pointer-cursor;
+  &:hover {
+    background-image: url(../images/downvote-hover.svg);
+  }
+}
+
+.complete {
+  position: absolute;
+  right: 5px;
+  bottom: 15px;
+  cursor: $pointer-cursor;
+  border: none;
+  border-radius: 10px;
+  background: $disabled-color;
+  color: $header-background-color;
+  font-weight: $bold;
+  &:hover {
+    background: $main-font-color;
+  }
+}
+
+.completeTodo {
+  opacity: 0.5;
+}
+
+@media screen and (min-width:600px) {
+  .input,
+  .task-input-wrapper,
+  .search-input {
+    width: 50%;
+  }
+  .todo {
+    height: 15px;
+  }
+  .entries {
+    margin: 0 auto;
+    width: 50%;
+  }
+  .todo-card {
+    width: 98%
+  }
+}
