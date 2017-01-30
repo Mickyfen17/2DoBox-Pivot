@@ -213,7 +213,7 @@ describe("testing 2Do Pivot", function() {
     );
   });
 
-  test.it.only("Should add todo, add content to search and test if todo is displayed or not", function() {
+  test.it("Should add todo, add content to search and test if todo is displayed or not", function() {
     const title = driver.findElement({className: "title"});
     const task  = driver.findElement({className: "task"});
     const save  = driver.findElement({className: "save"});
@@ -237,4 +237,47 @@ describe("testing 2Do Pivot", function() {
     );
   });
 
+  test.it("Should add todo and change the title content of the todo card", function() {
+    const title = driver.findElement({className: "title"});
+    const task  = driver.findElement({className: "task"});
+    const save  = driver.findElement({className: "save"});
+    const search = driver.findElement({className: "search-input"});
+    title.sendKeys("Testing the title")
+         .then(() => task.sendKeys("Testing the tasks"))
+         .then(() => save.click()
+    );
+    const todo = driver.findElement({className: "todo-card"});
+    const titleText = driver.findElement({className: "todo-title"});
+    titleText.getText().then((value) =>
+      assert.equal(value, "Testing the title")
+    );
+    titleText.click().then(() => titleText.clear())
+         .then(() => titleText.sendKeys("SELENIUM"))
+         .then(() => titleText.getText())
+         .then((value) =>
+       assert.equal(value, "SELENIUM")
+    );
+  });
+
+  test.it("Should add todo and change the body content of the todo card", function() {
+    const title = driver.findElement({className: "title"});
+    const task  = driver.findElement({className: "task"});
+    const save  = driver.findElement({className: "save"});
+    const search = driver.findElement({className: "search-input"});
+    title.sendKeys("Testing the title")
+         .then(() => task.sendKeys("Testing the tasks"))
+         .then(() => save.click()
+    );
+    const todo = driver.findElement({className: "todo-card"});
+    const bodyText = driver.findElement({className: "todo-body"});
+    bodyText.getText().then((value) =>
+      assert.equal(value, "Testing the tasks")
+    );
+    bodyText.click().then(() => bodyText.clear())
+         .then(() => bodyText.sendKeys("SELENIUM AGAIN"))
+         .then(() => bodyText.getText())
+         .then((value) =>
+       assert.equal(value, "SELENIUM AGAIN")
+    );
+  });
 });
