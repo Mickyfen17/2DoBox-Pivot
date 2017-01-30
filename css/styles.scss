@@ -45,13 +45,16 @@ h1 {
     width: 99%;
     height: 60px;
   }
-  p {
+  span {
     margin: 0;
     position: absolute;
     bottom: -15px;
     right: 0;
     color: #00A79D;
     font-family: $main-font;
+    p {
+      margin: 0;
+    }
   }
   .overCharCount {
     color: red;
