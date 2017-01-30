@@ -1,5 +1,4 @@
-$main-font : 'Roboto Slab', sans-serif;
-$todo-card-font : 'Open Sans', sans-serif;
+@import "variables";
 
 body {
   margin: 0;
@@ -8,7 +7,7 @@ body {
 
 .box {
   width: 100%;
-  background-color: #E5F3F2;
+  background-color: $header-background-color;
   padding-top: 20px;
 }
 
@@ -16,14 +15,14 @@ h1 {
   margin: 15px 0 12px 0;
   font-family: $main-font;
   font-size: 2.8em;
-  font-weight: 700;
+  font-weight: $bold;
   text-align: center;
 }
 
 .logo {
-  color: #00A79D;
+  color: $header-color;
   span {
-    color: #6D6E71;
+    color: $header-span-color;
   }
 }
 
@@ -32,9 +31,12 @@ h1 {
   padding: 3px 0px;
   height: 15px;
   width: 90%;
-  border: 2px solid #D1D3D4;
+  border: 2px solid $disabled-color;
   font-size: .9em;
   text-indent: 5px;
+  &::-webkit-input-placeholder {
+    color: $disabled-color;
+  }
 }
 
 .task-input-wrapper {
@@ -50,10 +52,11 @@ h1 {
     position: absolute;
     bottom: -15px;
     right: 0;
-    color: #00A79D;
+    color: $header-color;
     font-family: $main-font;
     p {
       margin: 0;
+      font-size: 20px;
     }
   }
   .overCharCount {
@@ -70,16 +73,16 @@ h1 {
 .show {
   margin: 0px 0 20px 0;
   height: 30px;
-  background-color: #00A79D;
+  background-color: $header-color;
   border: none;
   font-size: 14px;
-  color: #FFFFFF;
-  cursor: pointer;
+  color: $white;
+  cursor: $pointer-cursor;
   &:hover {
-    background-color: #045E55;
+    background-color: $button-hover;
   }
   &:disabled {
-    background-color: #939598;
+    background-color: $disabled-color;
     cursor: default;
   }
 }
@@ -87,35 +90,35 @@ h1 {
 article {
   padding-left: 10px;
   width: 80%;
-  border-bottom: 1px solid #D1D3D4;
+  border-bottom: 1px solid $main-font-color;
   h5 {
     margin: 10px 0 0 0;
-    color: #6D6E71;
+    color: $main-font-color;
     font-size: 1.4em;
   }
   p {
     margin: 10px 0 45px 0;
-    color: #939598;
-    font-family: $todo-card-font;
+    color: $sub-font-color;
     font-size: 0.9em;
   }
   h6 {
     position: absolute;
-    bottom: 17px;
-    left: 80px;
+    bottom: 15px;
+    left: 70px;
     margin: 0;
     width: 50%;
-    color: #6D6E71;
+    color: $main-font-color;
     font-size: 1em;
   }
 }
 
 .quality {
   position: absolute;
-  bottom: 17px;
-  left: 170px;
-  font-family: 'Open Sans', sans-serif;
+  bottom: 16px;
+  left: 164px;
+  font-family: $todo-card-font;
   font-size: 0.8em;
+  color: $sub-font-color;
 }
 
 .entries {
@@ -129,16 +132,20 @@ article {
   padding: 3px 0px;
   height: 15px;
   width: 89%;
-  border: 2px solid #D1D3D4;
+  border: 2px solid $main-font-color;
   font-size: 0.9em;
   text-indent: 5px;
+  color: $sub-font-color;
+  &::-webkit-input-placeholder {
+    color: $disabled-color;
+  }
 }
 
 .todo-card {
   position: relative;
   margin: 0 auto;
   width: 89%;
-  font-family: 'Roboto';
+  font-family: $todo-card-font ;
   text-align: left;
 }
 
@@ -148,7 +155,7 @@ article {
   top: 3px;
   height: 20px;
   width: 20px;
-  cursor: pointer;
+  cursor: $pointer-cursor;
   background: transparent url(../images/delete.svg);
   border: none;
   &:hover {
@@ -162,7 +169,7 @@ article {
   left: 7px;
   height: 20px;
   width: 20px;
-  cursor: pointer;
+  cursor: $pointer-cursor;
   background: transparent url(../images/upvote.svg);
   border: none;
   &:hover {
@@ -178,7 +185,7 @@ article {
   width: 20px;
   background: transparent url(../images/downvote.svg);
   border: none;
-  cursor: pointer;
+  cursor: $pointer-cursor;
   &:hover {
     background-image: url(../images/downvote-hover.svg);
   }
@@ -188,13 +195,14 @@ article {
   position: absolute;
   right: 5px;
   bottom: 15px;
-  cursor: pointer;
+  cursor: $pointer-cursor;
   border: none;
   border-radius: 10px;
-  background: #d1d3d4;
-  color: #FFF;
+  background: $disabled-color;
+  color: $header-background-color;
+  font-weight: $bold;
   &:hover {
-    background: #428bca;
+    background: $main-font-color;
   }
 }
 
