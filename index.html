@@ -9,16 +9,16 @@
   <body>
     <header class="box">
       <h1 class="logo">2Do<span>Box</span></h1>
-      <input type="text" placeholder="Title" class="title input">
+      <input aria-label="todo title input" type="text" placeholder="Title" class="title input">
       <div class="task-input-wrapper">
-        <textarea placeholder="Task" class="task input"></textarea>
-        <p id="char-count">120</p>
+        <textarea aria-label="todo body input" placeholder="Task" class="task input"></textarea>
+        <span tabindex="0" aria-label="characters remaining"><p tabindex="0" id="char-count">120</p></span>
       </div>
       <input type="submit" value="save" class="save input" disabled>
       <input type="submit" value="show all completed" class="show input" disabled>
     </header>
-    <input type="text" placeholder="Search" class="search-input">
-    <section class="entries">
+    <input aria-label="search all todos" type="text" placeholder="Search" class="search-input">
+    <section tabindex="0" aria-label="all displayed todos" class="entries">
     <!--where new ideas are placed  -->
     </section>
     <script src="main.bundle.js"></script>
