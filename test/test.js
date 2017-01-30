@@ -58,7 +58,6 @@ describe("testing 2Do Pivot", function() {
                 .then(() => save.click()
       );
     }
-
     driver.findElements({className: "todo-card"}).then((value) =>
        assert.equal(value.length, 5)
      );
@@ -278,6 +277,42 @@ describe("testing 2Do Pivot", function() {
          .then(() => bodyText.getText())
          .then((value) =>
        assert.equal(value, "SELENIUM AGAIN")
+    );
+  });
+
+  test.it("Should check that the char count decreases after text input", function() {
+    const title = driver.findElement({className: "title"});
+    const task  = driver.findElement({className: "task"});
+    const save  = driver.findElement({className: "save"});
+    const search = driver.findElement({className: "search-input"});
+    const charCount = driver.findElement({id: "char-count"});
+    charCount.getText().then((value) =>
+      assert.equal(value, 120)
+    );
+    title.sendKeys("Testing the title")
+         .then(() => task.sendKeys("1234567890"))
+         .then(() => charCount.getText())
+         .then((value) =>
+      assert.equal(value, 110)
+    );
+  });
+
+  test.it("Should add 130 chars and check that save button is disabled", function() {
+    const title = driver.findElement({className: "title"});
+    const task  = driver.findElement({className: "task"});
+    const save  = driver.findElement({className: "save"});
+    const search = driver.findElement({className: "search-input"});
+    const charCount = driver.findElement({id: "char-count"});
+    const addingKeys = () => {
+      for(let i = 0; i < 13; i++) {
+        task.sendKeys("1234567890");
+      }
+    };
+    title.sendKeys("Testing the title")
+         .then(() => addingKeys())
+         .then(() => save.getAttribute("disabled"))
+         .then((value) =>
+      assert.equal(value, "true")
     );
   });
 });
