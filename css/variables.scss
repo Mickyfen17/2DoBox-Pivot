@@ -10,3 +10,14 @@ $button-hover : #045E55;
 $white : #FFF;
 $bold : 700;
 $pointer-cursor : pointer;
+
+@mixin filter-btn {
+  width: 18%;
+  height: 25px;
+  max-width: 100px;
+  border: 1px solid $disabled-color;
+  color: $white;
+  background: none;
+  font-weight: 700;
+  cursor: pointer;
+}
