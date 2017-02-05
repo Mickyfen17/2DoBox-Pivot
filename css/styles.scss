@@ -149,19 +149,19 @@ article {
 .filter-btn {
   @include filter-btn;
 }
-.none {
+#none {
   background: #279f27;
 }
-.low {
+#low {
   background: #ffd400;
 }
-.normal {
+#normal {
   background: #1e90ff;
 }
-.high {
+#high {
   background: #ff8c00;
 }
-.critical {
+#critical {
   background: #d80000;
 }
 
@@ -232,6 +232,10 @@ article {
 
 .completeTodo {
   opacity: 0.5;
+}
+
+.displayToggleClass {
+  display: none
 }
 
 @media screen and (min-width:600px) {
