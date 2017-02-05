@@ -127,11 +127,16 @@ article {
   overflow: auto;
 }
 
+.search-filter-wrapper {
+  width: 90%;
+  margin: 0 auto;
+}
+
 .search-input {
   margin: 15px 0;
   padding: 3px 0px;
   height: 15px;
-  width: 89%;
+  width: 98%;
   border: 2px solid $main-font-color;
   font-size: 0.9em;
   text-indent: 5px;
@@ -139,6 +144,25 @@ article {
   &::-webkit-input-placeholder {
     color: $disabled-color;
   }
+}
+
+.filter-btn {
+  @include filter-btn;
+}
+.none {
+  background: #279f27;
+}
+.low {
+  background: #ffd400;
+}
+.normal {
+  background: #1e90ff;
+}
+.high {
+  background: #ff8c00;
+}
+.critical {
+  background: #d80000;
 }
 
 .todo-card {
@@ -213,7 +237,7 @@ article {
 @media screen and (min-width:600px) {
   .input,
   .task-input-wrapper,
-  .search-input {
+  .search-filter-wrapper {
     width: 50%;
   }
   .todo {
