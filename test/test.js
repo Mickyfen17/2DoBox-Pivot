@@ -1,21 +1,19 @@
 const assert    = require("assert");
 const webdriver = require("selenium-webdriver");
 const test      = require("selenium-webdriver/testing");
-require('locus')
-
 
 describe("testing 2Do Pivot", function() {
   let driver;
 
   test.beforeEach(() => {
-    // this.timeout(10000);
+    this.timeout(10000);
     driver = new webdriver.Builder()
                           .forBrowser("chrome")
                           .build();
     driver.get("http://localhost:8080");
   });
   test.afterEach(() => {
-    // driver.quit();
+    driver.quit();
   });
 
   test.it("should allow me to input a title", function() {

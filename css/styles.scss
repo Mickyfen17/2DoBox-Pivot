@@ -164,6 +164,12 @@ article {
 #critical {
   background: #d80000;
 }
+.reset-btn {
+  @include filter-btn;
+  width: 30%;
+  margin-top: 10px;
+  background: black;
+}
 
 .todo-card {
   position: relative;
